@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2025 The Stdlib Authors.
@@ -16,28 +16,35 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
+
+import { float64ndarray } from '@stdlib/types/ndarray';
 
 /**
-* Compute the arithmetic mean of a one-dimensional double-precision floating-point ndarray, ignoring `NaN` values and using a two-pass error correction algorithm.
+* Computes the arithmetic mean of a one-dimensional double-precision floating-point ndarray, ignoring `NaN` values and using a two-pass error correction algorithm.
 *
-* @module @stdlib/stats-base-ndarray-dnanmeanpn
+* ## Notes
+*
+* -   The function expects the following ndarrays:
+*
+*     -   a one-dimensional input ndarray.
+*
+* @param arrays - array-like object containing ndarrays
+* @returns arithmetic mean
 *
 * @example
 * var Float64Vector = require( '@stdlib/ndarray-vector-float64' );
-* var dnanmeanpn = require( '@stdlib/stats-base-ndarray-dnanmeanpn' );
 *
 * var x = new Float64Vector( [ 1.0, -2.0, NaN, 2.0 ] );
 *
 * var v = dnanmeanpn( [ x ] );
 * // returns ~0.3333
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function dnanmeanpn( arrays: [ float64ndarray ] ): number;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = dnanmeanpn;
