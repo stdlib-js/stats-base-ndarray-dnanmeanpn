@@ -1,7 +1,7 @@
-/**
+/*
 * @license Apache-2.0
 *
-* Copyright (c) 2026 The Stdlib Authors.
+* Copyright (c) 2025 The Stdlib Authors.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -16,18 +16,35 @@
 * limitations under the License.
 */
 
-#include "stdlib/stats/base/ndarray/dnanmeanpn.h"
-#include "stdlib/stats/strided/dnanmeanpn.h"
-#include "stdlib/ndarray/ctor.h"
-#include "stdlib/blas/base/shared.h"
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
+
+import { float64ndarray } from '@stdlib/types/ndarray';
 
 /**
 * Computes the arithmetic mean of a one-dimensional double-precision floating-point ndarray, ignoring `NaN` values and using a two-pass error correction algorithm.
 *
-* @param arrays    list containing an input ndarray
-* @return          arithmetic mean
+* ## Notes
+*
+* -   The function expects the following ndarrays:
+*
+*     -   a one-dimensional input ndarray.
+*
+* @param arrays - array-like object containing ndarrays
+* @returns arithmetic mean
+*
+* @example
+* var Float64Vector = require( '@stdlib/ndarray-vector-float64' );
+*
+* var x = new Float64Vector( [ 1.0, -2.0, NaN, 2.0 ] );
+*
+* var v = dnanmeanpn( [ x ] );
+* // returns ~0.3333
 */
-double stdlib_stats_dnanmeanpn( const struct ndarray *arrays[] ) {
-	const struct ndarray *x = arrays[ 0 ];
-	return API_SUFFIX(stdlib_strided_dnanmeanpn_ndarray)( stdlib_ndarray_dimension( x, 0 ), (const double *)stdlib_ndarray_data( x ), stdlib_ndarray_stride_elements( x, 0 ), stdlib_ndarray_offset_elements( x ) );
-}
+declare function dnanmeanpn( arrays: [ float64ndarray ] ): number;
+
+
+// EXPORTS //
+
+export = dnanmeanpn;
